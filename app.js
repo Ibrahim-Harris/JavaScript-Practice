@@ -267,6 +267,43 @@ console.log(myVar); // This will produce an error as this variable has a local s
 
 // Global vs local scope in functions: 
 
+var outerWear ="T-Shirt"; // global variable as its delclared outside the function. 
+function myOuterfit(){retrun outerWear;}  // we have also used the golbal scope variable outerWear within the function and now its becomes into the localscope and take presidence. It still can be used outside the function as its also still a gobal variable outside the function. See next example. 
+console.log(myOutfit()); // We are also calling the function and will return "T-Shirt"
+ 
+// another example showing presidence of local and gobal scope variables 
+
+var outerWear ="T-Shirt"; 
+function myOuterfit(){
+var outerWear="sweater"; 
+return outerWear;}  
+console.log(myOutfit()); // The console will return sweater as the local variable takes presidence. 
+console.log(outerWear); // This will return T-Shirt from the global variable and not the value within the function local scope variable. This is obtained from the first consol.log calling the function to run.  
+
+// Return a value from a function with return: 
+
+function minusSeven(num){return num - 7;}
+
+console.log(minusSeven(10)); // Calling funtion and passing value of 10 into num variable. Returing 3. 
+
+// Understanding unfinded value returned from a functions (Now functions can have return statements but they dont have to): 
+
+var sum = 0; //Global variable 
+function addThree() {sum=sum+3;} // This function is correct however, as we have not specifed return value it does not ouput anything and gives us the message as value undefined. 
+
+// another example: 
+
+function addFive() {sum+=5;} //Remeber as the var sum is in the gobal scope we can access that inside our new function without delcaring or anything. And again now output. 
+
+// Assignement with a returned value: 
+
+var changed = 0; 
+function change(num) {
+return (num+5)/5;
+}                    // The num variable excapts any number passed in. Return statement returns the calculation.  
+changed = change(10); // Called the function changed and passed in number 10 as num value and stored in the global variable. 
+console.log(change); // Logs the value of 3 into the console. Just part of my own. 
+
 
 
 
